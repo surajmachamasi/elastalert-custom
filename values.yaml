@@ -38,7 +38,7 @@ podAnnotations: {}
 
 elasticsearch:
   # elasticsearch endpoint e.g. (svc.namespace||svc)
-  host: "elasticsearch-master.dapr-monitoring"
+  host: elasticsearch-master.dapr-monitoring
   # elasticsearch port
   port: 9200
   # whether or not to connect to es_host using TLS
@@ -91,8 +91,7 @@ extraConfigOptions: {}
 
 # rule configurations e.g. (http://elastalert.readthedocs.io/en/latest/)
 rules: {}
-  # deadman_slack: |-
-  #   ---
+  config_slack: |-
     name: Containers
     type: frequency
     index: metric-*
