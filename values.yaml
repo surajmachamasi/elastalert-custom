@@ -94,7 +94,7 @@ rules:
    slack: |-
     name: Containers
     type: frequency
-    index: metrics-*
+    index: metric-*
     num_events: 3
     timeframe:
       minutes: 3
