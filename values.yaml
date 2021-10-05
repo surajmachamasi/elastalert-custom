@@ -38,9 +38,9 @@ podAnnotations: {}
 
 elasticsearch:
   # elasticsearch endpoint e.g. (svc.namespace||svc)
-  host: ""
+  host: "elasticsearch-master.dapr-monitoring"
   # elasticsearch port
-  port: 80
+  port: 9200
   # whether or not to connect to es_host using TLS
   useSsl: "False"
   # Username if authenticating to ES with basic auth
@@ -54,7 +54,7 @@ elasticsearch:
   # The key in elasticsearch.credentialsSecret that stores the ES username
   credentialsSecretPasswordKey: ""
   # whether or not to verify TLS certificates
-  verifyCerts: "True"
+  verifyCerts: "False"
   # Enable certificate based authentication
   # path to a PEM certificate to use as the client certificate
   # clientCert: "/certs/client.pem"
