@@ -91,7 +91,8 @@ extraConfigOptions: {}
 
 # rule configurations e.g. (http://elastalert.readthedocs.io/en/latest/)
 rules: {}
-  config_slack: |-
+  deadman_slack: |-
+     ---
     name: Containers
     type: frequency
     index: metric-*
