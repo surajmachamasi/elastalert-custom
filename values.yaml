@@ -94,10 +94,10 @@ rules:
    slack: |-
     name: Containers
     type: frequency
-    index: metric-*
-    num_events: 3
+    index: alertmetric-*
+    num_events: 1
     timeframe:
-      minutes: 3
+      minutes: 1
     filter:
     - term:
         kubernetes.event.message: "Liveness probe failed: cannot exec in a stopped state: unknown"
