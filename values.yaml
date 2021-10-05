@@ -92,7 +92,6 @@ extraConfigOptions: {}
 # rule configurations e.g. (http://elastalert.readthedocs.io/en/latest/)
 rules: 
    slack: |-
-    ---
     name: Containers
     type: frequency
     index: kubernetes.event.message: probe*
