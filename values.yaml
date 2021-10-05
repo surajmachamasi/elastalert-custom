@@ -38,9 +38,9 @@ podAnnotations: {}
 
 elasticsearch:
   # elasticsearch endpoint e.g. (svc.namespace||svc)
-  host: elasticsearch-master.dapr-monitoring
+  host: ""
   # elasticsearch port
-  port: 9200
+  port: 80
   # whether or not to connect to es_host using TLS
   useSsl: "False"
   # Username if authenticating to ES with basic auth
@@ -54,7 +54,7 @@ elasticsearch:
   # The key in elasticsearch.credentialsSecret that stores the ES username
   credentialsSecretPasswordKey: ""
   # whether or not to verify TLS certificates
-  verifyCerts: "False"
+  verifyCerts: "True"
   # Enable certificate based authentication
   # path to a PEM certificate to use as the client certificate
   # clientCert: "/certs/client.pem"
@@ -90,12 +90,12 @@ extraConfigOptions: {}
 # args: ["YOUR", "CUSTOM", "ARGS"]
 
 # rule configurations e.g. (http://elastalert.readthedocs.io/en/latest/)
-rules: {}
-  deadman_slack: |-
-     ---
+rules: {
+   slack: |-
+    ---
     name: Containers
     type: frequency
-    index: metric-*
+    index: kubernetes.event.message: probe*
     num_events: 3
     timeframe:
       minutes: 3
@@ -106,7 +106,7 @@ rules: {}
     - "slack"
     slack:
     slack_webhook_url: "https://hooks.slack.com/services/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" 
-  #deadman_pagerduty: |-
+  # deadman_pagerduty: |-
   #   ---
   #   name: Deadman Switch PagerDuty
   #   type: frequency
@@ -122,7 +122,7 @@ rules: {}
   #   pagerduty:
   #   pagerduty_service_key: dummy
   #   pagerduty_client_name: Elastalert Deadman Switch
-
+}
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
